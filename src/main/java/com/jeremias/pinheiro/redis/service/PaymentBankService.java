@@ -23,4 +23,19 @@ public class PaymentBankService implements AbstractService{
     public List<PaymentBank> fetchPayments() {
         return repository.fetchPayments();
     }
+
+    @Override
+    public PaymentBank fetchPaymentBankById(Long id) {
+        return repository.fetchPaymentBankById(id);
+    }
+
+    @Override
+    public boolean updatePayment(Long id, PaymentBank payment) {
+        return repository.updatePayment(id,payment);
+    }
+
+    @Override
+    public boolean deletePayment(Long id) {
+        return repository.deletePaymnet(id);
+    }
 }

@@ -1,12 +1,14 @@
 package com.jeremias.pinheiro.redis.model;
 
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
+
 public class PaymentBank implements Serializable {
 
     private Long id;

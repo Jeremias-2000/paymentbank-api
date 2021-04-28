@@ -31,4 +31,33 @@ public class PaymentRepository implements AbstractRepository{
         payments = redisTemplate.opsForHash().values(KEY);
         return payments;
     }
+
+    @Override
+    public PaymentBank fetchPaymentBankById(Long id) {
+        PaymentBank paymentBank;
+       paymentBank = (PaymentBank) redisTemplate.opsForHash().get(KEY,id.toString());
+        return paymentBank;
+    }
+
+    @Override
+    public boolean updatePayment(Long id, PaymentBank payment) {
+        try {
+            redisTemplate.opsForHash().put(KEY, id, payment);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deletePaymnet(Long id) {
+        try {
+            redisTemplate.opsForHash().delete(KEY,id.toString());
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

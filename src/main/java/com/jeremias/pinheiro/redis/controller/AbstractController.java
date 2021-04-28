@@ -2,10 +2,7 @@ package com.jeremias.pinheiro.redis.controller;
 
 import com.jeremias.pinheiro.redis.model.PaymentBank;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 public interface AbstractController {
 
@@ -14,4 +11,13 @@ public interface AbstractController {
 
     @GetMapping("/list")
     ResponseEntity<?> fetchPayments();
+
+    @GetMapping("/search/{id}")
+    ResponseEntity<?> fetchPaymentBankById(@PathVariable("id") Long id);
+
+    @PutMapping("/update/{id}")
+    ResponseEntity<?> updatePayment(@PathVariable("id") Long id,@RequestBody PaymentBank payment);
+
+    @DeleteMapping("/delete/{id}")
+    ResponseEntity<?> deletePaymentBankById(@PathVariable("id") Long id);
 }

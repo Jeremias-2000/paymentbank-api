@@ -8,4 +8,10 @@ public interface AbstractRepository {
     boolean save(PaymentBank payment);
 
     List<PaymentBank> fetchPayments();
+
+    PaymentBank fetchPaymentBankById(Long id);
+
+    boolean updatePayment(Long id, PaymentBank payment);
+
+    boolean deletePaymnet(Long id);
 }

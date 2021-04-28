@@ -10,4 +10,10 @@ public interface AbstractService {
     boolean save(PaymentBank payment);
 
     List<PaymentBank> fetchPayments();
+
+    PaymentBank fetchPaymentBankById(Long id);
+
+    boolean updatePayment(Long id, PaymentBank payment);
+
+    boolean deletePayment(Long id);
 }
